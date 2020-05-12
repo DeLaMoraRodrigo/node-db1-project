@@ -7,9 +7,9 @@ router.get('/', (req, res) => {
     let sortby;
     let sortdir;
     let queryLimit;
-    !req.query.sortby ? sortby='id' : sortby = req.query.sortby;
-    !req.query.sortdir ? sortdir='desc' : sortdir = req.query.sortdir;
-    !req.query.limit ? queryLimit='5' : queryLimit = req.query.limit;
+    !req.query.sortby ? sortby = 'id' : sortby = req.query.sortby;
+    !req.query.sortdir ? sortdir = 'asc' : sortdir = req.query.sortdir;
+    !req.query.limit ? queryLimit = null : queryLimit = req.query.limit;
 
     db.select('*').from('accounts')
       .orderBy(sortby, sortdir)
